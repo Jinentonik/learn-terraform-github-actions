@@ -35,6 +35,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::590184080325:role/iamr-cicd
+          role-session-name: github-actions-federation
           aws-region: us-east-1
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0

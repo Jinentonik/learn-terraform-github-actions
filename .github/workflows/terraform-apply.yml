@@ -9,6 +9,7 @@ env:
   TF_CLOUD_ORGANIZATION: "JinSpace"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "learn-terraform-github-actions"
+  IAM_ROLE: ${{ secrets.IAM_ROLE }}
   CONFIG_DIRECTORY: "./"
 
 
@@ -20,6 +21,7 @@ jobs:
     permissions: # granular permissions
       # so GitHub can check out this repo using the default github.token
       contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3

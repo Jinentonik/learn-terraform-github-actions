@@ -21,9 +21,6 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::590184080325:role/iamr-cicd"
-  }
 }
 
 resource "random_pet" "sg" {}

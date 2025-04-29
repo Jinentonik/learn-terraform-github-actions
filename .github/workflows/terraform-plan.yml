@@ -8,7 +8,6 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "learn-terraform-github-actions"
   IAM_ROLE: ${{ secrets.IAM_ROLE }}
-  TFC_WORKFLOW_VERSION: "v1.3.2"
   CONFIG_DIRECTORY: "./"
 
 jobs:

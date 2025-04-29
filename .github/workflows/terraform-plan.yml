@@ -31,15 +31,7 @@ jobs:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
           speculative: true
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::590184080325:role/iamr-cicd
-          role-session-name: github-actions-federation
-          aws-region: us-east-1
-      - name: List s3
-        run: aws s3 ls
-        
+
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: create-run
@@ -47,7 +39,7 @@ jobs:
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
           plan_only: true
-          token: ${{ env.TF_API_TOKEN }}
+          
 
       - name: Get Plan Output
         uses: hashicorp/tfc-workflows-github/actions/plan-output@v1.0.0
